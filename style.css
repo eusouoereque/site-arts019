@@ -18,10 +18,13 @@
     font-family: 'Inter', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-light);
-    overflow-x: hidden;
     line-height: 1.6;
     background-image: 
         radial-gradient(circle at 15% 50%, rgba(123, 44, 191, 0.08), transparent 25%),
