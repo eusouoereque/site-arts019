@@ -199,7 +199,7 @@ h1, h2, h3, h4 {
 .hero {
     position: relative;
     border-bottom: 1px solid var(--border-color);
-    background: url('assets/img/background sem o mascote.jpg') center/cover no-repeat;
+    background: url('assets/img/background-sem-o-mascote.webp') center/cover no-repeat;
 }
 
 .hero::before {
