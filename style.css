@@ -1,0 +1,911 @@
+/* Reset and Base Styles - Standardized to pagina.pdf */
+:root {
+    --bg-main: #05000a; /* Deepest purple/black */
+    --bg-card: #12051f; /* Slightly lighter for cards */
+    --bg-card-hover: #1c0830;
+    --primary: #7b2cbf; /* Button purple */
+    --primary-hover: #9d4edd;
+    --accent-yellow: #c77dff; /* Purple Highlights */
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+    --border-color: rgba(123, 44, 191, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    overflow-x: hidden;
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(123, 44, 191, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(123, 44, 191, 0.08), transparent 25%);
+    background-attachment: fixed;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* Efeitos de Luz Atmosféricos no Fundo */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+section::before, section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(140px); /* Cria o efeito de fumaça/luz difusa */
+    opacity: 0.5;
+}
+
+section:nth-child(odd)::before {
+    width: 600px; height: 600px;
+    background: rgba(123, 44, 191, 0.45); /* Luz roxa */
+    top: 10%; left: -300px;
+}
+
+section:nth-child(odd)::after {
+    width: 500px; height: 500px;
+    background: rgba(199, 125, 255, 0.15); /* Luz roxa suave */
+    bottom: 10%; right: -250px;
+}
+
+section:nth-child(even)::before {
+    width: 700px; height: 700px;
+    background: rgba(162, 89, 255, 0.35); /* Luz roxa mais clara */
+    top: 20%; right: -350px;
+}
+
+section:nth-child(even)::after {
+    width: 450px; height: 450px;
+    background: rgba(123, 44, 191, 0.4);
+    bottom: 5%; left: -200px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+/* Typography Classes */
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 20px; }
+.mt-4 { margin-top: 40px; }
+.w-100 { width: 100%; text-align: center; }
+
+.highlight-yellow {
+    color: var(--accent-yellow);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--accent-yellow);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    color: var(--accent-yellow);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.dashed-box {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 3px dashed var(--accent-yellow);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-yellow);
+    text-shadow: 0 0 10px rgba(199, 125, 255, 0.3);
+}
+
+/* Clean, High-Converting Buttons */
+.cta-btn {
+    display: inline-block;
+    padding: 20px 45px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--primary) 0%, #a259ff 100%);
+    box-shadow: 0 10px 30px rgba(123, 44, 191, 0.6);
+    border: none;
+    animation: pulse-glow 2.5s infinite;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.cta-btn:hover::after {
+    left: 100%;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(157, 78, 221, 0.9);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-float i {
+    margin-top: -2px; /* Correção óptica de alinhamento vertical comum em ícones FontAwesome */
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* 1. Hero Section */
+.hero {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    background: url('assets/img/background sem o mascote.jpg') center/cover no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(5,0,10,0.5) 0%, rgba(5,0,10,1) 100%);
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 55%; /* Encaixota o texto na metade esquerda da tela */
+    padding-right: 40px; /* Dá um respiro antes do mascote */
+}
+
+.hero-logo {
+    max-width: 130px;
+    margin-bottom: 5px;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(123, 44, 191, 0.5));
+}
+
+.headline {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.sub-headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.hero-mascot-container {
+    position: absolute;
+    right: 0;
+    bottom: -1px; /* Remove a linha do border-bottom que passa por trás dele */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; /* Alinha o mascote no canto direito da tela */
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-mascot-img {
+    max-height: 75vh; /* Cresce até um limite confortável da tela */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+}
+
+@keyframes float-mascot {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.hero-cta {
+    padding: 22px 50px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary) 0%, #a259ff 100%);
+    box-shadow: 0 10px 30px rgba(123, 44, 191, 0.6);
+    border: none;
+    animation: pulse-glow 2.5s infinite;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-cta::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.hero-cta:hover::after {
+    left: 100%;
+}
+
+.hero-cta:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(157, 78, 221, 0.9);
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(157, 78, 221, 0.7); }
+    70% { box-shadow: 0 0 0 25px rgba(157, 78, 221, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(157, 78, 221, 0); }
+}
+
+/* 2. Carousel */
+.carousel-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-main);
+    padding-bottom: 80px;
+}
+
+.carousel-section::before,
+.carousel-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-section::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-main) 0%, transparent 100%);
+}
+
+.carousel-section::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-main) 0%, transparent 100%);
+}
+
+.carousel-bg-container {
+    position: relative;
+    width: 100vw;
+    height: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.carousel-wrapper-horizontal {
+    position: relative;
+    width: 150vw;
+    left: -25vw;
+}
+
+.carousel-track-horizontal {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px; /* Adds the missing gap at the end for perfect 50% division */
+    width: max-content;
+}
+
+.track-left {
+    animation: scroll-left 40s linear infinite;
+}
+
+.track-right {
+    animation: scroll-right 40s linear infinite;
+}
+
+.carousel-item-card {
+    width: 250px;
+    height: 300px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.title-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: none;
+    width: 100%;
+    padding: 60px 0;
+    background: radial-gradient(circle, rgba(5,0,10,0.85) 0%, rgba(5,0,10,0) 70%);
+}
+
+.giant-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+}
+
+@media (max-width: 900px) {
+    .giant-title { font-size: 2.5rem; }
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1620px); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(-1620px); }
+    100% { transform: translateX(0); }
+}
+
+/* 3. Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.benefit-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.benefit-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-hover);
+    background: var(--bg-card-hover);
+}
+
+.benefit-box i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.benefit-box p {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* 4. Objection & Slider */
+.objection-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.objection-text {
+    flex: 1;
+}
+
+.objection-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.objection-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.objection-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.objection-visual .before-after-slider {
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Before / After Slider */
+.before-after-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--bg-card);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.horizontal-slider {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 350px;
+}
+
+.image-before, .image-after {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-before {
+    background: #111 url('https://via.placeholder.com/800x1000/111111/ffffff?text=ARTE+AMADORA') center/cover;
+}
+
+.image-after {
+    background: var(--primary) url('https://via.placeholder.com/800x1000/7b2cbf/ffffff?text=ARTE+PROFISSIONAL') center/cover;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.label-before {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.label-after {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.slider-line-visual {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: #fff;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.slider-button-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    z-index: 6;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+/* 5. Saia disso para isso */
+.sliders-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.instagram-slider {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5; /* Formato Instagram Post Portrait */
+}
+
+.instagram-slider .image-before {
+    background: #111 url('https://via.placeholder.com/800x1000/111111/ffffff?text=ANTES') center/cover;
+}
+
+.instagram-slider .image-after {
+    background: var(--primary) url('https://via.placeholder.com/800x1000/7b2cbf/ffffff?text=DEPOIS') center/cover;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* 6. Software Grid */
+.software-headers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.software-headers h2 { margin: 0; font-size: 3rem; }
+
+.fake-grid {
+    height: 400px;
+    background: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" fill="%2312051f"/><rect width="38" height="38" fill="%231c0830"/></svg>') repeat;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+/* 7. Updates */
+.mega-title {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-box {
+    background: var(--bg-card);
+    padding: 40px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-hover);
+    background: var(--bg-card-hover);
+}
+
+/* 8. Member Area */
+.member-modules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.module-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-hover);
+    background: var(--bg-card-hover);
+}
+
+.module-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* 9. Pricing */
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card .cta-btn {
+    margin-top: auto;
+}
+
+.pricing-card.premium {
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(123, 44, 191, 0.2);
+    transform: scale(1.05);
+    transform-origin: bottom center;
+}
+
+.plan-name { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
+.strike-price { color: var(--text-muted); text-decoration: line-through; }
+.price { font-size: 4rem; color: #fff; margin: 10px 0; }
+.installments { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+
+.plan-benefits {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.plan-benefits li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.plan-benefits i { color: var(--primary); margin-top: 5px; }
+
+/* 10. Guarantee */
+.guarantee-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guarantee-icon {
+    text-align: center;
+    color: var(--accent-yellow);
+}
+
+.guarantee-icon i {
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+
+.guarantee-icon span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+    display: block;
+}
+
+.guarantee-text h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* 11. Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.print-placeholder {
+    height: 400px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: bold;
+}
+
+/* 12. Authority */
+.authority-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.authority-bio {
+    flex: 1;
+}
+
+.authority-bio h3 { font-size: 2.5rem; margin-bottom: 20px; }
+.authority-bio p { margin-bottom: 15px; color: var(--text-muted); }
+.authority-bio ul { margin-left: 20px; margin-bottom: 15px; color: var(--text-muted); }
+.authority-bio ul li { margin-bottom: 5px; }
+
+.authority-stats {
+    flex: 1;
+    text-align: center;
+}
+
+.author-img-placeholder {
+    width: 300px;
+    height: 300px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-weight: bold;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.stat h4 { font-size: 2.5rem; color: var(--accent-yellow); }
+
+/* 13. FAQ */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 20px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.faq-question i {
+    transition: transform 0.3s;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.faq-answer-inner {
+    overflow: hidden;
+}
+
+.faq-answer p {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.faq-item.open .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-item.open .faq-question i {
+    transform: rotate(45deg);
+}
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-container, .objection-flex, .authority-flex, .guarantee-box { flex-direction: column; text-align: center; }
+    .hero-image-placeholder { width: 100%; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .software-headers { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .features-grid, .member-modules, .testimonials-grid { grid-template-columns: 1fr; }
+    .pricing-cards { flex-direction: column; align-items: center; }
+    .pricing-card.premium { transform: none; }
+    .headline { font-size: 2.5rem; }
+    .mega-title { font-size: 2.5rem; }
+}
+@media (max-width: 500px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+}
+
+/* Scroll Reveal Animations (Cleaned Up) */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
