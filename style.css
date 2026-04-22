@@ -357,8 +357,8 @@ h1, h2, h3, h4 {
 
 .carousel-wrapper-horizontal {
     position: relative;
-    width: 150vw;
-    left: -25vw;
+    width: 150%;
+    left: -25%;
 }
 
 .carousel-track-horizontal {
@@ -932,17 +932,25 @@ footer {
     .features-grid, .member-modules, .testimonials-grid { grid-template-columns: 1fr; }
     .sliders-grid-4 { grid-template-columns: repeat(2, 1fr); } /* 2 colunas para tablets */
 
+    /* Authority */
+    .authority-bio { text-align: left; }
+
     /* Preços */
     .pricing-cards { flex-direction: column; align-items: center; }
     .pricing-card { max-width: 100%; }
     .pricing-card.premium { transform: none; }
     
     /* Carrossel Reduzido */
-    .carousel-bg-container { height: 500px; }
+    .carousel-bg-container { height: 550px; }
+    .carousel-item-card { width: 200px; height: 250px; }
 }
 
 @media (max-width: 500px) {
     .container { padding: 40px 0; }
+    
+    /* Carrossel Mobile Ajustado (Proporção Instagram 4:5) */
+    .carousel-bg-container { height: 450px; }
+    .carousel-item-card { width: 160px; height: 200px; }
     
     .benefits-grid { grid-template-columns: 1fr; }
     .sliders-grid-4 { grid-template-columns: 1fr; } /* 1 coluna para celulares */
@@ -956,7 +964,9 @@ footer {
         width: 100%; 
     }
     
-    .stats-row { flex-direction: column; gap: 20px; }
+    .stats-row { flex-direction: row; gap: 20px; }
+    .stat h4 { font-size: 1.8rem; }
+    .stat p { font-size: 0.9rem; }
     .author-img-placeholder { width: 100%; max-width: 250px; height: 250px; }
     
     .whatsapp-float {
@@ -973,6 +983,4 @@ footer {
 .reveal.active { opacity: 1; transform: translateY(0); }
 .reveal.delay-1 { transition-delay: 0.1s; }
 .reveal.delay-2 { transition-delay: 0.2s; }
-.reveal.delay-3 { transition-delay: 0.3s; }
-n-delay: 0.2s; }
 .reveal.delay-3 { transition-delay: 0.3s; }
