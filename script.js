@@ -64,13 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
-            
-            // Fecha todos os outros
-            faqItems.forEach(faq => faq.classList.remove('open'));
-            
-            // Se o clicado não estava aberto, abre ele
+
+            faqItems.forEach(faq => {
+                faq.classList.remove('open');
+                faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+
             if (!isOpen) {
                 item.classList.add('open');
+                question.setAttribute('aria-expanded', 'true');
             }
         });
     });
@@ -91,8 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Opcional: Descomente a linha abaixo se quiser que a animação aconteça apenas uma vez
-                // revealObserver.unobserve(entry.target);
+                revealObserver.unobserve(entry.target);
             }
         });
     }, {
