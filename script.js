@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Animação de Reveal no Scroll (Efeito Formação Design)
-    const revealElements = document.querySelectorAll('.benefit-box, .objection-text, .before-after-slider, .feature-box, .module-card, .pricing-card, .guarantee-box, .stat, .authority-bio, .faq-item, .headline, .sub-headline');
+    const revealElements = document.querySelectorAll('.benefit-box, .objection-text, .before-after-slider, .pricing-card, .guarantee-box, .stat, .authority-bio, .faq-item, .headline');
     
     // Adiciona a classe base de reveal
     revealElements.forEach((el, index) => {
