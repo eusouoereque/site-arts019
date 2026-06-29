@@ -38,23 +38,6 @@ body {
     padding: 60px 0;
 }
 
-/* Skip link — visível apenas no foco (teclado / leitor de tela) */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 8px 16px;
-    background: var(--primary);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    z-index: 9999;
-    transition: top 0.2s;
-}
-.skip-link:focus {
-    top: 0;
-}
-
 /* Efeitos de Luz Atmosféricos no Fundo */
 section {
     position: relative;
@@ -1078,7 +1061,7 @@ footer {
         align-items: center;
     }
 
-    .hero-logo    { margin: 0 auto 20px auto; }
+    .hero-logo    { display: none; }
     .description  { margin: 0 auto 30px auto; }
 
     .hero-mascot-container {
@@ -1087,6 +1070,7 @@ footer {
         height: auto;
         justify-content: center;
         bottom: 0;
+        order: -1;
     }
 
     .hero-mascot-img { max-height: 400px; }
