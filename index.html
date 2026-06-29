@@ -31,14 +31,15 @@
 
     <!-- Preload dos recursos críticos above-the-fold -->
     <link rel="preload" href="assets/img/background-sem-o-mascote.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="assets/img/Masacote.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/img/Kallango1.webp" as="image" fetchpriority="high">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — assíncrono para não bloquear o render -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap"></noscript>
 
     <!-- Font Awesome carregado de forma assíncrona para não bloquear o render -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -140,7 +141,7 @@
                 <a href="#pricing" class="cta-btn hero-cta">QUERO ACESSO AGORA</a>
             </div>
             <div class="hero-mascot-container">
-                <img src="assets/img/Masacote.webp" alt="Mascote Designer 019" class="hero-mascot-img" fetchpriority="high">
+                <img src="assets/img/Kallango1.webp" alt="Mascote Designer 019" class="hero-mascot-img" fetchpriority="high">
             </div>
         </div>
     </header>
@@ -245,8 +246,8 @@
                     <a href="#pricing" class="cta-btn objection-cta">QUERO TER ACESSO</a>
                 </div>
                 <div class="objection-visual">
-                    <video class="objection-video" autoplay muted loop playsinline preload="none" poster="assets/img/video-poster.webp" aria-label="Demonstração de artes criadas com o Pack Designer 019">
-                        <source src="assets/video/brabos3.mp4" type="video/mp4">
+                    <video class="objection-video" muted loop playsinline preload="none" aria-label="Demonstração de artes criadas com o Pack Designer 019">
+                        <source src="assets/video/eventos-ia.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -257,42 +258,26 @@
     <section class="saia-disso-section">
         <div class="container text-center">
             <h2 class="section-title">SAIA DISSO PRA ISSO</h2>
-            <div class="sliders-grid-4">
-                <div class="before-after-slider instagram-slider" onmousemove="sliderHover(event, this)" ontouchmove="sliderHoverTouch(event, this)">
-                    <div class="image-before"></div>
-                    <span class="label-before">ANTES</span>
-                    <div class="image-after"></div>
-                    <span class="label-after">DEPOIS</span>
-                    <div class="slider-line-visual">
-                        <div class="slider-button-visual"><i class="fas fa-arrows-alt-h"></i></div>
-                    </div>
+            <div class="videos-showcase-grid">
+                <div class="showcase-video-wrap">
+                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - DJ Turin Combo Stories">
+                        <source src="assets/video/dj-turin-stories.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="before-after-slider instagram-slider" onmousemove="sliderHover(event, this)" ontouchmove="sliderHoverTouch(event, this)">
-                    <div class="image-before"></div>
-                    <span class="label-before">ANTES</span>
-                    <div class="image-after"></div>
-                    <span class="label-after">DEPOIS</span>
-                    <div class="slider-line-visual">
-                        <div class="slider-button-visual"><i class="fas fa-arrows-alt-h"></i></div>
-                    </div>
+                <div class="showcase-video-wrap">
+                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - Ouça agora">
+                        <source src="assets/video/ouca-agora.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="before-after-slider instagram-slider" onmousemove="sliderHover(event, this)" ontouchmove="sliderHoverTouch(event, this)">
-                    <div class="image-before"></div>
-                    <span class="label-before">ANTES</span>
-                    <div class="image-after"></div>
-                    <span class="label-after">DEPOIS</span>
-                    <div class="slider-line-visual">
-                        <div class="slider-button-visual"><i class="fas fa-arrows-alt-h"></i></div>
-                    </div>
+                <div class="showcase-video-wrap">
+                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - Baile da 098 1ª Edição">
+                        <source src="assets/video/baile-098.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="before-after-slider instagram-slider" onmousemove="sliderHover(event, this)" ontouchmove="sliderHoverTouch(event, this)">
-                    <div class="image-before"></div>
-                    <span class="label-before">ANTES</span>
-                    <div class="image-after"></div>
-                    <span class="label-after">DEPOIS</span>
-                    <div class="slider-line-visual">
-                        <div class="slider-button-visual"><i class="fas fa-arrows-alt-h"></i></div>
-                    </div>
+                <div class="showcase-video-wrap">
+                    <video muted loop playsinline preload="none" aria-label="Trabalho de design em vídeo">
+                        <source src="assets/video/video-showcase.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>

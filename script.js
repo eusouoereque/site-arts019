@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Animação de Reveal no Scroll (Efeito Formação Design)
-    const revealElements = document.querySelectorAll('.benefit-box, .objection-text, .before-after-slider, .pricing-card, .guarantee-box, .stat, .authority-bio, .faq-item, .headline');
+    const revealElements = document.querySelectorAll('.benefit-box, .objection-text, .showcase-video-wrap, .pricing-card, .guarantee-box, .stat, .authority-bio, .faq-item');
     
     // Adiciona a classe base de reveal
     revealElements.forEach((el, index) => {
@@ -102,4 +102,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Play/pause showcase videos com base na visibilidade (evita autoplay simultâneo fora da tela)
+    const videoPlayObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target.querySelector('video');
+            if (!video) return;
+            if (entry.isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.showcase-video-wrap').forEach(wrap => videoPlayObserver.observe(wrap));
+
+    // Play/pause do vídeo de objeção com base na visibilidade
+    const objectionVideo = document.querySelector('.objection-video');
+    if (objectionVideo) {
+        const objectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    objectionVideo.play().catch(() => {});
+                } else {
+                    objectionVideo.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        objectionObserver.observe(objectionVideo);
+    }
 });

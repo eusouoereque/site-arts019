@@ -1,3 +1,13 @@
+/* Fallback para Outfit (minimiza CLS durante o font-swap) */
+@font-face {
+    font-family: 'Outfit Fallback';
+    src: local('Arial');
+    ascent-override: 95%;
+    descent-override: 20%;
+    line-gap-override: 0%;
+    size-adjust: 103%;
+}
+
 /* Reset and Base */
 :root {
     --bg-main: #05000a;
@@ -15,7 +25,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit', 'Outfit Fallback', sans-serif;
 }
 
 html, body {
@@ -50,8 +60,9 @@ section::before, section::after {
     border-radius: 50%;
     z-index: -1;
     pointer-events: none;
-    filter: blur(80px);
+    filter: blur(60px);
     opacity: 0.5;
+    transform: translateZ(0);
 }
 
 section:nth-child(odd)::before {
@@ -228,7 +239,7 @@ h1, h2, h3, h4 {
 .hero-mascot-container {
     position: absolute;
     right: 0;
-    bottom: -1px;
+    bottom: -22vh;
     width: 50%;
     height: 100%;
     display: flex;
@@ -239,12 +250,13 @@ h1, h2, h3, h4 {
 }
 
 .hero-mascot-img {
-    max-height: 75vh;
+    max-height: 92vh;
     width: auto;
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
     animation: float-mascot 4s ease-in-out infinite;
+    will-change: transform;
 }
 
 @keyframes float-mascot {
@@ -270,6 +282,7 @@ h1, h2, h3, h4 {
     overflow: hidden;
     background: var(--bg-main);
     padding-bottom: 80px;
+    z-index: 3;
 }
 
 .carousel-section::before,
@@ -320,8 +333,8 @@ h1, h2, h3, h4 {
     width: max-content;
 }
 
-.track-left  { animation: scroll-left  40s linear infinite; }
-.track-right { animation: scroll-right 40s linear infinite; }
+.track-left  { animation: scroll-left  40s linear infinite; will-change: transform; }
+.track-right { animation: scroll-right 40s linear infinite; will-change: transform; }
 
 .carousel-item-card {
     width: 250px;
@@ -549,6 +562,32 @@ h1, h2, h3, h4 {
 .instagram-slider .image-after {
     background: var(--primary) url('https://via.placeholder.com/800x1000/7b2cbf/ffffff?text=DEPOIS') center/cover;
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* Videos Showcase (Saia Disso Pra Isso) */
+.videos-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+}
+
+.showcase-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.showcase-video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* 6. Gallery */
@@ -1071,6 +1110,9 @@ footer {
         justify-content: center;
         bottom: 0;
         order: -1;
+        -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 92%);
+        mask-image: linear-gradient(to bottom, black 55%, transparent 92%);
+        margin-bottom: -80px;
     }
 
     .hero-mascot-img { max-height: 400px; }
@@ -1093,6 +1135,7 @@ footer {
     }
 
     .sliders-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .videos-showcase-grid { grid-template-columns: repeat(2, 1fr); }
 
     .authority-bio { text-align: left; }
 
@@ -1115,6 +1158,7 @@ footer {
     .benefits-grid  { grid-template-columns: 1fr; }
     .gallery-grid   { grid-template-columns: repeat(2, 1fr); }
     .sliders-grid-4 { grid-template-columns: 1fr; }
+    .videos-showcase-grid { grid-template-columns: 1fr; }
 
     .bento-grid {
         grid-template-columns: 1fr;
