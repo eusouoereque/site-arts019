@@ -241,16 +241,14 @@ h1, h2, h3, h4 {
     right: 0;
     bottom: -22vh;
     width: 50%;
-    height: 100%;
     display: flex;
-    align-items: flex-end;
     justify-content: flex-end;
     z-index: 10;
     pointer-events: none;
 }
 
 .hero-mascot-img {
-    max-height: 92vh;
+    max-height: 100vh;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -1115,7 +1113,7 @@ footer {
         margin-bottom: -80px;
     }
 
-    .hero-mascot-img { max-height: 400px; }
+    .hero-mascot-img { max-height: 450px; }
 
     .headline     { font-size: 2.5rem; }
     .section-title { font-size: 2rem; }
