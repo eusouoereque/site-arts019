@@ -132,4 +132,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.3 });
         objectionObserver.observe(objectionVideo);
     }
+
+    // Play/pause do vídeo do logo (seção Autoridade) com base na visibilidade
+    const authorVideo = document.querySelector('.author-video');
+    if (authorVideo) {
+        const authorVideoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    authorVideo.play().catch(() => {});
+                } else {
+                    authorVideo.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        authorVideoObserver.observe(authorVideo);
+    }
 });
