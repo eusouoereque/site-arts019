@@ -951,8 +951,11 @@ h1, h2, h3, h4 {
     margin: 0 auto 30px auto;
     display: block;
     object-fit: cover;
-    mask-image: radial-gradient(circle, #000 75%, transparent 100%);
-    -webkit-mask-image: radial-gradient(circle, #000 75%, transparent 100%);
+}
+
+.authority-section::before,
+.authority-section::after {
+    display: none;
 }
 
 .stats-row {
