@@ -947,9 +947,7 @@ h1, h2, h3, h4 {
 .author-video {
     width: 300px;
     height: 300px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: transparent;
     margin: 0 auto 30px auto;
     display: block;
     object-fit: cover;
