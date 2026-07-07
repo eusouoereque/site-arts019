@@ -217,7 +217,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-logo {
-    max-width: 130px;
+    max-width: 220px;
+    height: auto;
     margin-bottom: 5px;
     display: block;
     filter: drop-shadow(0 0 10px rgba(123, 44, 191, 0.5));
