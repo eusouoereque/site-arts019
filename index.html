@@ -35,15 +35,16 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts — assíncrono para não bloquear o render -->
+    <!-- Google Fonts — assíncrono para não bloquear o render (sem SRI: o CSS varia por User-Agent) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap"></noscript>
 
     <!-- Font Awesome carregado de forma assíncrona para não bloquear o render -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous"></noscript>
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -246,7 +247,7 @@
                     <a href="#pricing" class="cta-btn objection-cta">QUERO TER ACESSO</a>
                 </div>
                 <div class="objection-visual">
-                    <video class="objection-video" muted loop playsinline preload="none" aria-label="Demonstração de artes criadas com o Pack Designer 019">
+                    <video class="objection-video" muted loop playsinline preload="none" poster="assets/img/poster-eventos-ia.webp" aria-label="Demonstração de artes criadas com o Pack Designer 019">
                         <source src="assets/video/eventos-ia.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -260,22 +261,22 @@
             <h2 class="section-title">CHEGUE NESSE NIVEL!</h2>
             <div class="videos-showcase-grid">
                 <div class="showcase-video-wrap">
-                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - DJ Turin Combo Stories">
+                    <video muted loop playsinline preload="none" poster="assets/img/poster-dj-turin-stories.webp" aria-label="Trabalho de design - DJ Turin Combo Stories">
                         <source src="assets/video/dj-turin-stories.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-video-wrap">
-                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - Ouça agora">
+                    <video muted loop playsinline preload="none" poster="assets/img/poster-ouca-agora.webp" aria-label="Trabalho de design - Ouça agora">
                         <source src="assets/video/ouca-agora.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-video-wrap">
-                    <video muted loop playsinline preload="none" aria-label="Trabalho de design - Baile da 098 1ª Edição">
+                    <video muted loop playsinline preload="none" poster="assets/img/poster-baile-098.webp" aria-label="Trabalho de design - Baile da 098 1ª Edição">
                         <source src="assets/video/baile-098.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="showcase-video-wrap">
-                    <video muted loop playsinline preload="none" aria-label="Trabalho de design em vídeo">
+                    <video muted loop playsinline preload="none" poster="assets/img/poster-video-showcase.webp" aria-label="Trabalho de design em vídeo">
                         <source src="assets/video/video-showcase.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -458,7 +459,7 @@
                     <p class="authority-signature">Estamos aqui para apoiar seu crescimento e facilitar o seu trabalho!</p>
                 </div>
                 <div class="authority-stats">
-                    <video class="author-video" width="300" height="300" muted loop playsinline preload="none" aria-label="Logo animado em 3D da ARTS_019">
+                    <video class="author-video" width="300" height="300" muted loop playsinline preload="none" poster="assets/img/poster-logo-3d.webp" aria-label="Logo animado em 3D da ARTS_019">
                         <source src="assets/video/logo-3d.mp4" type="video/mp4">
                     </video>
                     <div class="stats-row">

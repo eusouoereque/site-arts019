@@ -451,6 +451,8 @@ h1, h2, h3, h4 {
 .objection-video {
     width: 100%;
     max-width: 360px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
     border-radius: 12px;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
