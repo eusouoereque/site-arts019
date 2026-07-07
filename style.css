@@ -917,16 +917,13 @@ h1, h2, h3, h4 {
     margin-top: 48px;
 }
 
-.print-placeholder {
+.testimonial-img {
+    width: 100%;
     height: 400px;
+    object-fit: cover;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    font-weight: bold;
 }
 
 /* 11. Authority */

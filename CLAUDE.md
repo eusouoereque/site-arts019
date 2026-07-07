@@ -149,8 +149,8 @@ Classe `.cta-btn` — roxo gradiente com animação `pulse-glow` infinita e efei
 - Ícone de medalha + texto descritivo
 
 ### 10. Depoimentos (`.testimonials-section`)
-- **Seção placeholder** — 3 divs com texto "PRINT WPP 1/2/3"
-- Precisam ser substituídos por `<img>` reais dos prints de WhatsApp de clientes
+- 3 prints reais de WhatsApp em `assets/img/testimonials/depoimento-01.webp` a `depoimento-03.webp`
+- `<img>` com `alt` descritivo, `loading="lazy"`, `width`/`height` (previne CLS)
 
 ### 11. Autoridade (`.authority-section`)
 - Bio da ARTS_019: 4+ anos, 1500+ designers ajudados
@@ -247,7 +247,6 @@ Três funcionalidades:
 |--------------------|--------------------------------------------------|------------|
 | Carrossel          | 12 imagens `.webp` (amostras de templates)       | Alta       |
 | Sliders Antes/Após | 4 pares de imagens reais (arte amadora vs pro)   | Alta       |
-| Depoimentos        | 3 prints reais de WhatsApp de clientes           | Alta       |
 | Autoridade         | Foto real da equipe ou logo em alta resolução    | Média      |
 | Botões de compra   | URL real da Kiwify (mensal e anual)              | Alta       |
 | WhatsApp flutuante | Link real `https://wa.me/55XXXXXXXXXXX`          | Alta       |
