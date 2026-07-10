@@ -1,46 +1,5 @@
 // Script para a Landing Page (Design focado no textos.pdf com efeitos extras)
 
-// Função para Slider Visual via Hover (Mouse)
-function sliderHover(event, element) {
-    const rect = element.getBoundingClientRect();
-    let x = event.clientX - rect.left; // Posição do mouse relativa ao container
-    
-    // Limita o X para não sair do container
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
-    
-    const percentage = (x / rect.width) * 100 + '%';
-    
-    const imageAfter = element.querySelector('.image-after');
-    const sliderVisual = element.querySelector('.slider-line-visual');
-    
-    if(imageAfter && sliderVisual) {
-        imageAfter.style.clipPath = `polygon(${percentage} 0, 100% 0, 100% 100%, ${percentage} 100%)`;
-        imageAfter.style.width = '100%'; /* Garante que a largura nunca diminua */
-        sliderVisual.style.left = percentage;
-    }
-}
-
-// Função para Slider Visual via Touch (Mobile)
-function sliderHoverTouch(event, element) {
-    const rect = element.getBoundingClientRect();
-    let x = event.touches[0].clientX - rect.left;
-    
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
-    
-    const percentage = (x / rect.width) * 100 + '%';
-    
-    const imageAfter = element.querySelector('.image-after');
-    const sliderVisual = element.querySelector('.slider-line-visual');
-    
-    if(imageAfter && sliderVisual) {
-        imageAfter.style.clipPath = `polygon(${percentage} 0, 100% 0, 100% 100%, ${percentage} 100%)`;
-        imageAfter.style.width = '100%'; /* Garante que a largura nunca diminua */
-        sliderVisual.style.left = percentage;
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth Scroll para os botões que levam à seção de preços (âncoras)
@@ -103,8 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // Respeita a preferência de movimento reduzido: não dá autoplay nos vídeos
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Play/pause showcase videos com base na visibilidade (evita autoplay simultâneo fora da tela)
     const videoPlayObserver = new IntersectionObserver((entries) => {
+        if (prefersReducedMotion) return;
         entries.forEach(entry => {
             const video = entry.target.querySelector('video');
             if (!video) return;
@@ -120,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Play/pause do vídeo de objeção com base na visibilidade
     const objectionVideo = document.querySelector('.objection-video');
-    if (objectionVideo) {
+    if (objectionVideo && !prefersReducedMotion) {
         const objectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -135,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Play/pause do vídeo do logo (seção Autoridade) com base na visibilidade
     const authorVideo = document.querySelector('.author-video');
-    if (authorVideo) {
+    if (authorVideo && !prefersReducedMotion) {
         const authorVideoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
