@@ -32,17 +32,16 @@
     <link rel="icon" href="assets/img/favicon.webp" type="image/webp">
     <link rel="apple-touch-icon" href="assets/img/favicon.webp">
 
-    <!-- Preload dos recursos críticos above-the-fold -->
-    <link rel="preload" href="assets/img/background-sem-o-mascote.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="assets/img/Kallango1.webp" as="image" fetchpriority="high">
+    <!-- Preload dos recursos críticos above-the-fold (responsivo: mobile vs desktop) -->
+    <link rel="preload" href="assets/img/background-mobile.webp" as="image" media="(max-width: 900px)" fetchpriority="high">
+    <link rel="preload" href="assets/img/background-sem-o-mascote.webp" as="image" media="(min-width: 901px)" fetchpriority="high">
+    <link rel="preload" href="assets/img/Kallango1-mobile.webp" as="image" media="(max-width: 900px)" fetchpriority="high">
+    <link rel="preload" href="assets/img/Kallango1.webp" as="image" media="(min-width: 901px)" fetchpriority="high">
+
+    <!-- Fonte Outfit auto-hospedada + preload (elimina a troca de fonte que causava CLS) -->
+    <link rel="preload" href="assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts — assíncrono para não bloquear o render (sem SRI: o CSS varia por User-Agent) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap"></noscript>
 
     <!-- Font Awesome carregado de forma assíncrona para não bloquear o render -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -145,7 +144,10 @@
                 <a href="#pricing" class="cta-btn hero-cta">QUERO ACESSO AGORA</a>
             </div>
             <div class="hero-mascot-container">
-                <img src="assets/img/Kallango1.webp" alt="Mascote Designer 019" class="hero-mascot-img" width="1280" height="1614" fetchpriority="high">
+                <picture>
+                    <source media="(max-width: 900px)" srcset="assets/img/Kallango1-mobile.webp">
+                    <img src="assets/img/Kallango1.webp" alt="Mascote Designer 019" class="hero-mascot-img" width="1280" height="1614" fetchpriority="high">
+                </picture>
             </div>
         </div>
     </header>
