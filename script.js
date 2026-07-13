@@ -62,6 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // Meta Pixel: InitiateCheckout ao clicar nos botões que levam ao checkout da Kiwify
+    const checkoutPlans = {
+        'qNPivr8': { id: 'plano-mensal', value: 24.99 },
+        '8eoAQaG': { id: 'plano-anual', value: 180.00 }
+    };
+
+    document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (typeof fbq !== 'function') return;
+            const plan = checkoutPlans[link.getAttribute('href').split('/').pop()];
+            if (!plan) return;
+            fbq('track', 'InitiateCheckout', {
+                content_ids: [plan.id],
+                value: plan.value,
+                currency: 'BRL'
+            });
+        });
+    });
+
     // Respeita a preferência de movimento reduzido: não dá autoplay nos vídeos
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
