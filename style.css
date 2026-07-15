@@ -739,6 +739,18 @@ h1, h2, h3, h4 {
 
 .installments { font-size: 1rem; color: var(--text-muted); margin-bottom: 30px; }
 
+.save-highlight {
+    color: #fff;
+    font-weight: 800;
+    background: linear-gradient(120deg, rgba(199, 125, 255, 0.35) 0%, rgba(157, 78, 221, 0.55) 100%);
+    padding: 2px 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(157, 78, 221, 0.35);
+    white-space: nowrap;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
 .plan-benefits {
     list-style: none;
     margin-bottom: 30px;

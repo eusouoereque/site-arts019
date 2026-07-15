@@ -147,12 +147,12 @@ Classe `.cta-btn` — roxo gradiente com animação `pulse-glow` infinita e efei
 - Responsivo: 3 colunas → 2 colunas → 1 coluna
 
 ### 8. Pricing (`#pricing`, `.pricing-section`)
-- 2 cards: Plano Mensal (R$24,99/mês) e Plano Anual (12x R$18,62 ou R$180,00 à vista)
+- 2 cards: Plano Mensal (R$35,00/mês) e Plano Anual (12x R$24,51 ou R$237,00 à vista)
 - Botões de compra já apontam para o checkout real da Kiwify (mensal `qNPivr8`, anual `8eoAQaG`)
-- Plano Anual: badge "Melhor Escolha", background diferenciado, shadow mais pronunciada, 7 itens vs 4 do mensal
-- "economize R$ 119,88" destacado no Anual (299,88 riscado − 180,00 à vista)
-- "Mestre dos Prompts (em breve)" como item bônus em roxo accent com ícone estrela no Anual
-- Os dois planos têm acesso ao mesmo conteúdo — a diferença é só o preço
+- Plano Anual: badge "Melhor Escolha", background diferenciado, shadow mais pronunciada, 8 itens vs 5 do mensal
+- "economize R$ 183,00 (44% de desconto)" destacado no Anual (420,00 riscado − 237,00 à vista)
+- Itens bônus em roxo accent com ícone estrela **só no Anual**: "Mestre dos Prompts (em breve)", "Curso de Photoshop (em breve)" e "Curso de After Effects (em breve)"
+- Os dois planos dão acesso ao mesmo conteúdo (ambos listam Templates, EDIT019, Aulas — Pessoas Animadas com IA, Suporte e Acesso imediato) — a única diferença real é o **atendimento prioritário** do Anual (mensal tem "Suporte humano" comum) + os itens "em breve" que aparecem só no card Anual como reforço de valor
 
 ### 9. Garantia (`.guarantee-section`)
 - Garantia incondicional de 7 dias
