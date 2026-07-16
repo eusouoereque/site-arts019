@@ -148,7 +148,7 @@ Classe `.cta-btn` — roxo gradiente com animação `pulse-glow` infinita e efei
 
 ### 8. Pricing (`#pricing`, `.pricing-section`)
 - 2 cards: Plano Mensal (R$35,00/mês) e Plano Anual (12x R$24,51 ou R$237,00 à vista)
-- Botões de compra já apontam para o checkout real da Kiwify (mensal `qNPivr8`, anual `8eoAQaG`)
+- Botões de compra já apontam para o checkout real da Kiwify (mensal `CxqZhj5`, anual `Denz44P`)
 - Plano Anual: badge "Melhor Escolha", background diferenciado, shadow mais pronunciada, 8 itens vs 5 do mensal
 - "economize R$ 183,00 (44% de desconto)" destacado no Anual (420,00 riscado − 237,00 à vista)
 - Itens bônus em roxo accent com ícone estrela **só no Anual**: "Mestre dos Prompts (em breve)", "Curso de Photoshop (em breve)" e "Curso de After Effects (em breve)"
